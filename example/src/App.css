@@ -136,7 +136,7 @@ p {
   font-size: 30px;
 }
 
-.playground > div {
+.playground > span {
   vertical-align: middle;
 }
 
@@ -227,7 +227,19 @@ footer .github-link img {
   width: 100%;
 }
 
+/*.mobile {*/
+/*  visibility: hidden;*/
+/*  position: fixed;*/
+/*  left: -9999px;*/
+/*  font-size: 12px;*/
+/*}*/
+
 @media screen and (max-width: 768px) {
+  /*.mobile {*/
+  /*  visibility: visible;*/
+  /*  position: static;*/
+  /*}*/
+
   .container {
     padding: 30px 20px 50px;
   }
@@ -250,11 +262,6 @@ footer .github-link img {
 
   .description {
     font-size: 18px;
-  }
-
-  .playground {
-    padding: 10px 20px;
-    font-size: 20px;
   }
 
   .example-button {

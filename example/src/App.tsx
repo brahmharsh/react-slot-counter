@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import CommonHighlighter from './components/CommonHighlighter';
 import SlotCounter, { SlotCounterRef } from 'react-slot-counter';
 import item1 from './images/diamond.png';
@@ -27,6 +27,16 @@ function App() {
   const counterRef3 = React.useRef<SlotCounterRef>(null);
   const counterRef5 = React.useRef<SlotCounterRef>(null);
   const counterRef6 = React.useRef<SlotCounterRef>(null);
+  const [key, setKey] = React.useState('mobile');
+
+  useEffect(() => {
+    const resizeHandler = () => {
+      // setKey(window.innerWidth < 768 ? 'mobile' : 'desktop');
+      slot1Ref.current?.refreshStyles();
+    };
+    window.addEventListener('resize', resizeHandler);
+    return () => window.removeEventListener('resize', resizeHandler);
+  }, []);
 
   return (
     <div className="example">
@@ -43,7 +53,8 @@ function App() {
 
         <div className="example-area">
           <div className="playground">
-            <SlotCounter ref={slot1Ref} value={123456} />
+            <SlotCounter key={key} ref={slot1Ref} value={123456} />
+            {/*<SlotCounter containerClassName="mobile" ref={slot1Ref} value={123456} />*/}
             <button
               type="button"
               className="example-button"
