@@ -205,7 +205,7 @@ function SlotCounter(
   isChangedValueIndexList.reverse();
 
   const calculatedInterval = useMemo(() => {
-    const MAX_INTERVAL = 0.1;
+    const MAX_INTERVAL = 0.5;
     return Math.min(MAX_INTERVAL, effectiveDuration / valueList.length);
   }, [effectiveDuration, valueList.length]);
 
